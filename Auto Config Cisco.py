@@ -11,7 +11,7 @@ conn = ConnectHandler(**Switch)
 
 vlan_database = [
 	'interface vlan 1', 
-	'ip address 192.168.20.1 255.255.255.0',
+	'ip address 192.168.xx.xx 255.255.255.0',
 	'interface vlan 10',
 	'interface vlan 20',
 	'interface vlan 30'
@@ -44,7 +44,8 @@ configure_interfaces = [
 	'no shut'
 ]
 			 		  		 		  		
-conn.send_config_set(vlan_database)
+vlan_dat = conn.send_config_set(vlan_database)
+
 conn.send_config_set(configure_interfaces)
 
 conn.send_command_expect('write memory')
