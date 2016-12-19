@@ -1,4 +1,5 @@
 from netmiko import ConnectHandler
+import os
 
 Switch = {
 	'device_type': 'cisco_ios',
@@ -6,8 +7,6 @@ Switch = {
 	'username': 'admin',
 	'password': 'P@ssw0rd',
 }
-
-conn = ConnectHandler(**Switch)
 
 vlan_database = [
 	'interface vlan 1', 
@@ -37,21 +36,31 @@ configure_interfaces = [
 	'switchport mode access',
 	'switchport access vlan 30',
 	'descripton Internett',
-	'no shut',
+	'no shutdown',
 	'interface range fastethernet0/23-24',
 	'switchport mode trunk',
 	'switchport trunk allowed vlan 1,10,20,30',
-	'no shut'
+	'no shutdown'
 ]
-			 		  		 		  		
-vlan_dat = conn.send_config_set(vlan_database)
 
+wr = 'write memory'
+sh_run = 'show running-configuration'
+conn = ConnectHandler(**Switch)	
+conn.send_config_set(vlan_database)
 conn.send_config_set(configure_interfaces)
+conn.send_command_expect(wr)
 
-conn.send_command_expect('write memory')
-
-output = conn.send_command('show run')
+output = conn.send_command(sh_run)
 
 conn.disconnect()
+
+userprofile = os.environ['USERPROFILE']
+
+answer = raw_input('Would you like to save output to file?[y/n]: ')
+
+if answer == 'y' or answer == 'Y':
+	file = open(userprofile + '\\Documents\\Python\\running_config.txt', 'w+')
+	file.write(output)
+	file.close()
 
 print(output)
