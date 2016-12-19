@@ -56,7 +56,7 @@ conn.disconnect()
 
 userprofile = os.environ['USERPROFILE']
 
-answer = raw_input('Would you like to save output to file?[y/n]: ')
+answer = raw_input('Vil du lagre konfigurasjonen til en tekstfil?[y/n]: ')
 
 if answer == 'y' or answer == 'Y':
 	file = open(userprofile + '\\Documents\\Python\\running_config.txt', 'w+')
