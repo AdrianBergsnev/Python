@@ -3,14 +3,14 @@ import os
 
 Switch = {
 	'device_type': 'cisco_ios',
-	'ip': '192.168.xx.xx',
+	'ip': '192.168.0.119',
 	'username': 'admin',
-	'password': 'P@ssw0rd',
+	'password': 'Passord123',
 }
 
 vlan_database = [
 	'interface vlan 1', 
-	'ip address 192.168.xx.xx 255.255.255.0',
+	'ip address 192.168.50.1 255.255.255.0',
 	'interface vlan 10',
 	'interface vlan 20',
 	'interface vlan 30'
@@ -64,3 +64,8 @@ if answer == 'y' or answer == 'Y':
 	file.close()
 
 print(output)
+
+'''
+Before executing the script:
+
+SSH must be enabled, and username and password must be defined.
