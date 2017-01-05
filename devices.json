@@ -15,5 +15,20 @@
  	"username": "admin",
  	"device_type": "cisco_ios",
  	"ip": "192.168.0.147" 
+},
+ {
+ 	"username": "admin",
+ 	"device_type": "cisco_ios",
+ 	"ip": "192.168.0.102" 
+},
+ {
+ 	"username": "admin",
+ 	"device_type": "cisco_nxos",
+ 	"ip": "192.168.0.100" 
+},
+ {
+ 	"username": "admin",
+ 	"device_type": "cisco_nxos",
+ 	"ip": "192.168.0.101" 
 }
 ]

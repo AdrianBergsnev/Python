@@ -41,11 +41,9 @@ for device in devices:
 
 #Sending command, and expects a following answer
 
-	print ('Confirms destination and filename')
 	out += conn.send_command_timing("")
-	print('Exporting config file')
 	out += conn.send_command_timing("")
-	print('Config file exported')
+	print('Config file exported from', device['ip'])
 
 	conn.disconnect()
 
