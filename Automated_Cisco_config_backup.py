@@ -1,11 +1,7 @@
 from netmiko import ConnectHandler
 
-'''
-from Device_list import devices
-'''
 import netmiko
 import json
-
 
 def get_input(prompt=''):
 	try:
@@ -14,7 +10,8 @@ def get_input(prompt=''):
 		line = input(prompt)
 	return line
 
-#Prompting 
+#Prompting
+
 
 password = get_input('Password: ')
 
@@ -30,21 +27,32 @@ for device in devices:
 #foreach device in devices, the var contains multiple devices
 
 	device['password'] = password
+
 #Defined password in connection windows before connection to device
+
+	print('Connecting to device', device['ip'])
+
+#Printing the device ip thats being connected
 
 	conn = ConnectHandler(**device)	
 
 #Connecting to the devices imported from .json
 
+	print('Sends TFTP request')
 	out = conn.send_command_timing('copy running-config tftp://192.168.0.221/')
 
 #Sending command, and expects a following answer
 
+	print ('Confirms destination and filename')
 	out += conn.send_command_timing("")
+	print('Exporting config file')
 	out += conn.send_command_timing("")
+	print('Config file exported')
 
 #Sends no keyboard strokes = continues proceeding tftp confirm
 
 	conn.disconnect()
+
+print('Done!')
 
 #disconnects the SSH session
