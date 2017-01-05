@@ -1,5 +1,4 @@
 from netmiko import ConnectHandler
-import os
 
 Switch = {
 	'device_type': 'cisco_ios',
