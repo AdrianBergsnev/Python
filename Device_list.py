@@ -1,5 +1,5 @@
-passwd = 'Pass'
-passwd_firewall = 'Pass'
+passwd = 'Passs'
+passwd_firewall = 'Passs'
 
 Kobber = {
 	'device_type': 'cisco_ios',
