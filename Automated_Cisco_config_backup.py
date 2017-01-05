@@ -1,5 +1,4 @@
 from netmiko import ConnectHandler
-
 import netmiko
 import json
 
@@ -11,7 +10,6 @@ def get_input(prompt=''):
 	return line
 
 #Prompting
-
 
 password = get_input('Password: ')
 
@@ -48,8 +46,6 @@ for device in devices:
 	print('Exporting config file')
 	out += conn.send_command_timing("")
 	print('Config file exported')
-
-#Sends no keyboard strokes = continues proceeding tftp confirm
 
 	conn.disconnect()
 
