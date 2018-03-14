@@ -1,0 +1,21 @@
+[
+    {
+        "username": "admin",
+        "password": "",
+        "device_type": "cisco_ios",
+        "ip": "192.168.0.150"
+   },
+    {
+        "username": "admin",
+        "password": "",
+        "device_type": "cisco_ios",
+        "ip": "192.168.0.141"
+   },
+   {
+        "username": "admin",
+        "password": "",
+        "device_type": "cisco_ios",
+        "ip": "192.168.0.147" 
+    }
+	
+]
